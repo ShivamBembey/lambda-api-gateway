@@ -43,7 +43,7 @@ EOF
 
 # Lambda Function
 resource "aws_lambda_function" "list_buckets_terraform" {
-  filename      = "C:\\Users\\SHIVAMBEMBEY\\Desktop\\awsLambda_terraform\\lambda_function_payload.zip"  # Path to your Lambda function code
+  filename      = "${path.module}/lambda_function_payload.zip"  # Relative path to the Lambda function code
   function_name = "list-buckets-lambda"
   role          = aws_iam_role.lambda_execution_role.arn
   handler       = "lambda_function.lambda_handler"
